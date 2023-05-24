@@ -1,0 +1,42 @@
+hdfs dfs
+
+hdfs dfs -ls---list files
+
+hdfs dfs -usage ls
+
+hdfs dfs -help ls
+
+-----create folders and copy files in to hdfs----
+
+hdfs dfs -rm -R skipTrash /user/fmichera ###R- recursive,,skipTrash  --helps to delete files permanently even from recycle bin
+
+hdfs dfs -mkdir -p /user/fmichera/dir_name  ##to create directory
+
+hdfs dfs -put /data/retail_db/categories /user/itversity/retail_db/categories ##copy files from local to hdfs
+
+hdfs dfs -ls /user/itversity/retail_db/categories##to validate
+
+hdfs dfs -ls -h /user/itversity/retail_db/categories##to validate with the size of the file
+
+####how to do it automatically in python####----------------------------------------------------------------------------------
+
+create one .py file
+
+import subprocess
+
+subprocess.check_call(
+         "hdfs dfs -put /data/retail_db/categories /user/itversity/retail_db/categories"
+          shell=True)
+Run the script--------------------------watch videos to iterate through files using os library
+
+hdfs fsck file path - files - blocks    ###----to see the block size of each distributed files across data nodes
+
+hdfs fsck file path - files - blocks - locations   ###----to see the block size and replications of each distributed files across data nodes
+
+Note:-----''''''-------
+
+once we initialize hdfs there you will find hdfs config file in that file you can get name noda and data node details like dfs.namenode and dfs.datanode most important thing is dfs.replication which is "number of replication of data have stored" and dfs.blocksize which is "how may blocks the data has been distributed among data nodes.
+
+
+
+
